@@ -12,6 +12,8 @@ mongoose.connection.on('open',function(){
 })
 
 const spaceController = require('./controllers/space');
+const userController = require('./controllers/user');
+
 
 
 const app = express();
@@ -31,6 +33,11 @@ app.get('/api/v1/spaces', spaceController.getAllSpaces)
 app.post('/api/v1/spaces', spaceController.postNewSpaces)
 app.put('/api/v1/spaces/:id', spaceController.updateSpacesById)
 app.delete('/api/v1/spaces/:id', spaceController.delSpacesById)
+
+app.get('/api/v1/users', userController.getAllUsers)
+app.post('/api/v1/users', userController.postNewUsers)
+app.put('/api/v1/users/:id', userController.updateUsersById)
+app.delete('/api/v1/users/:id', userController.delUsersById)
 
 
 
