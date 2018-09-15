@@ -13,6 +13,7 @@ mongoose.connection.on('open',function(){
 
 const spaceController = require('./controllers/space');
 const userController = require('./controllers/user');
+const reviewController = require('./controllers/review');
 
 
 
@@ -38,6 +39,11 @@ app.get('/api/v1/users', userController.getAllUsers)
 app.post('/api/v1/users', userController.postNewUsers)
 app.put('/api/v1/users/:id', userController.updateUsersById)
 app.delete('/api/v1/users/:id', userController.delUsersById)
+
+app.get('/api/v1/reviews', reviewController.getAllReviews)
+app.post('/api/v1/reviews', reviewController.postNewReviews)
+app.put('/api/v1/reviews/:id', reviewController.updateReviewsById)
+app.delete('/api/v1/reviews/:id', reviewController.delReviewsById)
 
 
 
