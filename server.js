@@ -14,7 +14,7 @@ mongoose.connection.on('open',function(){
 const spaceController = require('./controllers/space');
 const userController = require('./controllers/user');
 const reviewController = require('./controllers/review');
-
+const blogController = require('./controllers/blog')
 
 
 const app = express();
@@ -45,6 +45,11 @@ app.post('/api/v1/reviews', reviewController.postNewReviews)
 app.put('/api/v1/reviews/:id', reviewController.updateReviewsById)
 app.delete('/api/v1/reviews/:id', reviewController.delReviewsById)
 
+
+app.get('/api/v1/blogs', blogController.getAllBlogs)
+app.post('/api/v1/blogs', blogController.postNewBlogs)
+app.put('/api/v1/blogs/:id', blogController.updateBlogsById)
+app.delete('/api/v1/blogs/:id', blogController.delBlogsById)
 
 
 app.set('port',3000);
